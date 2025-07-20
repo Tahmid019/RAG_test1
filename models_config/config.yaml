@@ -1,0 +1,5 @@
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+generation_model: google/flan-t5-small
+dim: 384
+index_path: data/faiss_index/index.faiss
+docs_path: data/docs/corpus.txt

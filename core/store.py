@@ -15,7 +15,9 @@ class VectorStore:
         self.index.add(embeddings)
 
     def save(self):
+        os.makedirs(os.path.dirname(self.index_path), exist_ok=True)
         faiss.write_index(self.index, self.index_path)
+        print(f"Index saved to {self.index_path}")
 
     def search(self, query_emb: np.ndarray, k: int = 5):
         scores, ids = self.index.search(query_emb, k)
