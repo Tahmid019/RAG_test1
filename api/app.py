@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from shared.utils import EmbeddingGenerator, FaissStore
+# from shared.utils import EmbeddingGenerator, FaissStore
 
 load_dotenv()
 app = Flask(__name__)
@@ -22,17 +22,17 @@ METADATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'data', 'faiss_ind
 embedding_generator = None
 faiss_store = None
 
-def init_rag_components():
-    global embedding_generator, faiss_store
-    print("Initializing RAG components...")
+# def init_rag_components():
+#     global embedding_generator, faiss_store
+#     print("Initializing RAG components...")
     
-    faiss_store = FaissStore.load_index(FAISS_INDEX_FILE, METADATA_FILE)
-    if faiss_store is None:
-        print("Faiss index not found. Please run the ingestion script first.")
-        sys.exit()
+#     faiss_store = FaissStore.load_index(FAISS_INDEX_FILE, METADATA_FILE)
+#     if faiss_store is None:
+#         print("Faiss index not found. Please run the ingestion script first.")
+#         sys.exit()
     
-    embedding_generator = EmbeddingGenerator(EMBEDDING_MODEL_NAME)
-    print("RAG components initialized and ready.")
+#     embedding_generator = EmbeddingGenerator(EMBEDDING_MODEL_NAME)
+#     print("RAG components initialized and ready.")
 
 @app.route('/query', methods=['POST'])
 def query_endpoint():
@@ -60,5 +60,5 @@ def query_endpoint():
     return jsonify({"answer": final_answer})
 
 if __name__ == '__main__':
-    init_rag_components()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # init_rag_components()
+    app.run(host='0.0.0.0', port=7860)
