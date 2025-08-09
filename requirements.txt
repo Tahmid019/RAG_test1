@@ -1,7 +1,7 @@
 flask
 python-dotenv
 faiss-cpu
+numpy
+pickle-mixin
 sentence-transformers
-transformers
-torch
-pyyaml
+google-generativeai
