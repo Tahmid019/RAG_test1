@@ -2,7 +2,6 @@ import streamlit as st
 from core.retriever import Retriever
 from core.generator import Generator
 
-# # initialize
 @st.cache_resource
 def init_components():
     retriever = Retriever()
