@@ -10,19 +10,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PDF_DIRECTORY = "../data/docs/"
+PDF_DIRECTORY = "../data/pdfs/"
 FAISS_INDEX_FILE = "faiss_index.bin"
 METADATA_FILE = "faiss_index.metadata"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL_NAME = "gemini-1.5-flash"
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+NVIDIA_EMBEDDER = "nvidia/NV-Embed-v2"
 CHUNK_SIZE = 128
 CHUNK_OVERLAP = 24
 
 
 class EmbeddingGenerator:
     def __init__(self, model_name):
-        model = SentenceTransformer('nvidia/NV-Embed-v2', trust_remote_code=True)
+        model = SentenceTransformer(EMBEDDING_MODEL_NAME, trust_remote_code=True)
         model.max_seq_length = 32768
         model.tokenizer.padding_side="right"
         self.model = model

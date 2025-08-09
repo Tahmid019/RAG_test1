@@ -4,3 +4,11 @@ transformers
 sentence-transformers
 faiss-cpu
 pyyaml
+faiss
+Flask
+numpy
+pdfminer
+PyMuPDF
+python-dotenv
+sentence_transformers
+tqdm
