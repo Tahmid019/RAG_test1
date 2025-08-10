@@ -14,9 +14,9 @@ app = Flask(__name__)
 
 
 # --- Configuration ---
-PDF_DIRECTORY = "../data/docs/"
-FAISS_INDEX_FILE = "old/faiss_index.bin"
-METADATA_FILE = "old/faiss_index.metadata"
+PDF_DIRECTORY = "./"
+FAISS_INDEX_FILE = "faiss_index.bin"
+METADATA_FILE = "faiss_index.metadata"
 # GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL_NAME = "gemini-1.5-flash"
