@@ -1,8 +1,7 @@
+flask
+python-dotenv
 faiss-cpu
-pickle
-pymupdf
+numpy
 pickle-mixin
 sentence-transformers
 google-generativeai
-flask
-python-dotenv
