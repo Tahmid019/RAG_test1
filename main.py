@@ -2,7 +2,6 @@ import numpy as np
 import faiss
 import os
 import pickle
-import pypdf
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
 from typing import List, Dict
@@ -88,21 +87,6 @@ def chunk_text(text: str, chunk_size: int, chunk_overlap: int) -> List[str]:
         start += chunk_size - chunk_overlap
     return chunks
 
-def extract_text_from_pdfs(pdf_dir: str) -> Dict[str, str]:
-    all_docs = {}
-    for filename in os.listdir(pdf_dir):
-        if filename.endswith(".pdf"):
-            filepath = os.path.join(pdf_dir, filename)
-            try:
-                reader = pypdf.PdfReader(filepath)
-                full_text = ""
-                for page_num, page in enumerate(reader.pages):
-                    full_text += page.extract_text() or ""
-                    full_text += f"\n\n--- Page {page_num + 1} of {filename} ---\n\n"
-                all_docs[filename] = full_text
-            except Exception as e:
-                print(f"Error processing {filename}: {e}")
-    return all_docs
 
 def get_llm_response(query: str, context: str) -> str:
     genai.configure(api_key=GEMINI_API_KEY)
