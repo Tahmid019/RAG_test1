@@ -1,0 +1,8 @@
+faiss-cpu
+pickle
+pymupdf
+pickle-mixin
+sentence-transformers
+google-generativeai
+flask
+python-dotenv
