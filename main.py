@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 
 # --- Configuration ---
-PDF_DIRECTORY = "deploy/"
+PDF_DIRECTORY = "."
 FAISS_INDEX_FILE = "faiss_index.bin"
 METADATA_FILE = "faiss_index.metadata"
 # GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
